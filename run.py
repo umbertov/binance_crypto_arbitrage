@@ -33,9 +33,7 @@ def process_asset(crypto, exchange, alt):
         str(exchange), alt, delta_forward, delta_backward
     )
     crypto.log(msg)
-    victory_msg = "#" * 10
     if delta_forward > config.THRESHOLD:
-        print(victory_msg)
         print(
             "\n",
             "Found opportunity for {:5} @{:.4f} on {}\n".format(
@@ -50,7 +48,6 @@ def process_asset(crypto, exchange, alt):
         )
         # crypto.run_arbitrage_forward(exchange, alt)
     elif delta_backward > config.THRESHOLD:
-        print(victory_msg)
         print(
             "\n",
             "Found opportunity for {:5} @{:.4f} on {}\n".format(

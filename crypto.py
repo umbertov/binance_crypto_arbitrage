@@ -788,3 +788,4 @@ class Crypto:
                 )
         self.log("❌ Was not able to sell {} to {}".format(asset1, asset2))
         return False
+
