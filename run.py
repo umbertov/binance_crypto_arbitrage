@@ -14,6 +14,10 @@ import sys
 import time
 import config
 
+def printerr(*args, **kwargs):
+    if 'file' in kwargs: del kwargs['file']
+    print(*args, **kwargs, file=sys.stderr)
+
 """
         Check if an asset makes profit, if yes we execute the arbitrage
 """
@@ -22,7 +26,7 @@ def process_asset(crypto, exchange, alt):
         delta_backward = crypto.estimate_arbitrage_backward(exchange, alt)
         msg = "{:10} / {:5}: {:8.4f}% / {:8.4f}%".format(str(exchange), alt, delta_forward, delta_backward)
         # crypto.log(msg)
-        print(msg.ljust(100), file=sys.stderr, end='\r')
+        printerr(msg.ljust(100), end='\r')
         victory_msg = '#'*10
         if (delta_forward > config.THRESHOLD):
                 print(victory_msg)

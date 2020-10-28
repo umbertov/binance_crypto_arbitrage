@@ -8,6 +8,11 @@ import time
 import config
 from operator import itemgetter
 
+def printerr(*args, **kwargs):
+    if 'file' in kwargs: del kwargs['file']
+    print(*args, **kwargs, file=sys.stderr)
+
+
 """
         This class is a manager for multiple crypto exchanges.
         You can get your balance, create orders...
@@ -532,7 +537,7 @@ class Crypto:
         """
         def log(self, text, mode="log"):
                 formatted_text = "[{}] {}".format(datetime.now().strftime("%d/%m/%Y %H:%M:%S"), text)
-                print(formatted_text.ljust(100), end='\r', file=sys.stderr)
+                printerr(formatted_text.ljust(100), end='\r')
                 if (mode == "notification"):
                         self.bot.sendMessage(chat_id=secrets.TELEGRAM_CHAT, text=formatted_text)
                 if (mode == "notification" or mode == "log"):
