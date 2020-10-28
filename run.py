@@ -26,7 +26,7 @@ def process_asset(crypto, exchange, alt):
         delta_backward = crypto.estimate_arbitrage_backward(exchange, alt)
         msg = "{:10} / {:5}: {:8.4f}% / {:8.4f}%".format(str(exchange), alt, delta_forward, delta_backward)
         # crypto.log(msg)
-        printerr(msg.ljust(100), end='\r')
+        printerr(msg.ljust(80), end='\r')
         victory_msg = '#'*10
         if (delta_forward > config.THRESHOLD):
                 print(victory_msg)
