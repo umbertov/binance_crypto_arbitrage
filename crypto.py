@@ -238,7 +238,7 @@ class Crypto:
 				return True
 			except Exception as e:
 				self.log("Error while canceling orders for {}/{}: {}. Retrying.".format(asset1, asset2, str(e)))
-		self.log("Cannot cancel orders for {}/{}.".format(asset1, asset2, str(e)))
+		self.log("Cannot cancel orders for {}/{}.".format(asset1, asset2))
 		return False
 
 	"""
