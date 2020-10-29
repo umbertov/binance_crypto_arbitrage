@@ -294,7 +294,7 @@ class Crypto:
                         asset1, asset2, str(e)
                     )
                 )
-        self.log("Cannot cancel orders for {}/{}.".format(asset1, asset2, str(e)))
+        self.log("Cannot cancel orders for {}/{}.".format(asset1, asset2))
         return False
 
     """
